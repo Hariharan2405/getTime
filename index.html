@@ -1,0 +1,61 @@
+<!DocType html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="">
+		<meta name="keywords" content="HTML,JavaScript">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Time</title>
+	
+	
+	</head>
+	
+	<body>
+		<script>
+			var date=new Date();
+			var t=date.toLocaleTimeString();
+			document.write("Time = ",t);
+			if(t.indexOf("AM")>=0){
+				if(((t[0]+t[1]+t[3]+t[4])>=0600 || (t[0]+t[2]+t[3])>=600) && ((t[0]+t[1]+t[3]+t[4])<1200 || (t[0]+t[2]+t[3])<1200)){
+					document.write(" => Morning");
+				}
+				else{
+				document.write(" => Night");
+				}
+			}
+			else{
+				if(((t[0]+t[1]+t[3]+t[4])<0600 || (t[0]+t[2]+t[3])<600) || ((t[0]+t[1]+t[3]+t[4])>=1200 || (t[0]+t[2]+t[3])>=1200)){
+				document.write(" => Afternoon");
+				}
+				else{
+				document.write(" => Night");
+				}
+			}
+			document.write("<br><br>");
+			
+			//Time from user
+			var t=prompt("Enter time. (ex)09:55"), n=prompt("Enter AM or PM");
+			var x=n.toUpperCase();
+			document.write(t+" "+n);
+			if(x=="AM"){
+				if((t[0]+t[1]+t[3]+t[4])>=0600 && (t[0]+t[1]+t[3]+t[4])<1200){
+					document.write(" => Morning");
+				}
+				else{
+				document.write(" => Night");
+				}
+			}
+			else if(x=="PM"){
+				if((t[0]+t[1]+t[3]+t[4])>=1200 || (t[0]+t[1]+t[3]+t[4])<0600){
+				document.write(" => Afternoon");
+				}
+				else{
+				document.write(" => Night");
+				}
+			}
+			else{
+				document.write(" => Wrong value");
+			}
+		</script>
+	</body>
+</html>
